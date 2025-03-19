@@ -1,6 +1,5 @@
 {
-    "title": "Introduce your product quickly & effectively",
-    "text": "Landy comes with multi-lingual support, all of the content is stored in the JSON files, so that you can manage the texts without having any prior knowledge in developing web applications using React.js.",
-    "button": "Get started"
-  }
-  
+  "title": "Learn Quickly & Effectively",
+  "text": "Our tool leverages generative AI and multi-lingual support to provide an engaging and accessible learning experience for individuals with dyslexia and ADHD.",
+  "button": "Get Started"
+}
