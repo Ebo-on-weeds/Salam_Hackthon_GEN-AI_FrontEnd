@@ -1,6 +1,5 @@
 import { withTranslation } from "react-i18next";
 import { TFunction } from "i18next"; // Import TFunction from i18next
-
 import { Container, TextWrapper, Content } from "./styles";
 
 interface Props {

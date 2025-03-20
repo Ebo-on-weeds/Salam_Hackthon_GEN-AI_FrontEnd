@@ -16,6 +16,7 @@ import {
   Outline,
   Span,
 } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   t: TFunction;
@@ -27,6 +28,8 @@ const Header = ({ t }: HeaderProps) => {
   const toggleButton = () => {
     setVisibility(!visible);
   };
+  let navigate = useNavigate();
+
 
   const MenuItem = () => {
     const scrollTo = (id: string) => {
@@ -47,12 +50,19 @@ const Header = ({ t }: HeaderProps) => {
         <CustomNavLinkSmall onClick={() => scrollTo("product")}>
           <Span>{t("Product")}</Span>
         </CustomNavLinkSmall>
+          <CustomNavLinkSmall onClick={() => scrollTo("contact")}>
+            <Span>{t("Contact")}</Span>
+          </CustomNavLinkSmall>
         <CustomNavLinkSmall
           style={{ width: "180px" }}
-          onClick={() => scrollTo("contact")}
+          onClick={() =>{
+            navigate('/login')
+            
+          }}
         >
+          
           <Span>
-            <Button>{t("Contact")}</Button>
+            <Button>{t("Login")}</Button>
           </Span>
         </CustomNavLinkSmall>
       </>
