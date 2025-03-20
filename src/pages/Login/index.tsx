@@ -1,13 +1,13 @@
 import * as React from 'react';
-// import CssBaseline from '@mui/material/CssBaseline';
 import Stack from '@mui/material/Stack';
-// import AppTheme from '../shared-theme/AppTheme';
-// import ColorModeSelect from '../shared-theme/ColorModeSelect';
 import SignInCard from './components/signInCard';
 import Content from './components/content';
+import Header from '../../components/Header';
 
 export default function SignInPage() {
   return (
+    <div>
+<Header/>
       <Stack
         direction="column"
         component="main"
@@ -59,5 +59,7 @@ export default function SignInPage() {
           </Stack>
         </Stack>
       </Stack>
+    </div>
+
   );
 }

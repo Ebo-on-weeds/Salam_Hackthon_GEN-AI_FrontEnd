@@ -11,27 +11,27 @@ import { SitemarkIcon } from './customIcons';
 const items = [
   {
     icon: <SettingsSuggestRoundedIcon sx={{ color: 'text.secondary' }} />,
-    title: 'Adaptable performance',
+    title: 'Personalized Learning',
     description:
-      'Our product effortlessly adjusts to your needs, boosting efficiency and simplifying your tasks.',
+      'Our generative AI adapts to individual learning styles, providing tailored content for people with dyslexia and ADHD.',
   },
   {
     icon: <ConstructionRoundedIcon sx={{ color: 'text.secondary' }} />,
-    title: 'Built to last',
+    title: 'Accessible Design',
     description:
-      'Experience unmatched durability that goes above and beyond with lasting investment.',
+      'Built with accessibility in mind, our platform ensures an inclusive experience for all users.',
   },
   {
     icon: <ThumbUpAltRoundedIcon sx={{ color: 'text.secondary' }} />,
-    title: 'Great user experience',
+    title: 'Enhanced User Experience',
     description:
-      'Integrate our product into your routine with an intuitive and easy-to-use interface.',
+      'An intuitive and user-friendly interface makes learning engaging and stress-free.',
   },
   {
     icon: <AutoFixHighRoundedIcon sx={{ color: 'text.secondary' }} />,
-    title: 'Innovative functionality',
+    title: 'Innovative AI Features',
     description:
-      'Stay ahead with features that set new standards, addressing your evolving needs better than the rest.',
+      'Leverage cutting-edge AI to overcome reading and speaking challenges, empowering users to achieve their goals.',
   },
 ];
 

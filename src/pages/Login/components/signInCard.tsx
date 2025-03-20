@@ -10,9 +10,14 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { styled } from '@mui/material/styles';
 import ForgotPassword from './forgetPassword';
 import { GoogleIcon, FacebookIcon, SitemarkIcon } from './customIcons';
+import { useNavigate } from 'react-router-dom';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -38,6 +43,8 @@ export default function SignInCard() {
   const [passwordError, setPasswordError] = React.useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState('');
   const [open, setOpen] = React.useState(false);
+  const [showPassword, setShowPassword] = React.useState(false); // State for toggling password visibility
+  const nav = useNavigate()
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -48,6 +55,8 @@ export default function SignInCard() {
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
     if (emailError || passwordError) {
       event.preventDefault();
       return;
@@ -57,6 +66,18 @@ export default function SignInCard() {
       email: data.get('email'),
       password: data.get('password'),
     });
+
+      if (validateInputs()) {
+        const email = data.get('email') as string;
+        const password = data.get('password') as string;
+      // Save user data (e.g., to localStorage or send to an API)
+      const userData = { email, password };
+      console.log('User Data:', userData);
+      localStorage.setItem('userData', JSON.stringify(userData)); // Save to localStorage
+      alert('Sign In Successful!');
+      nav('/choose')
+      
+    }
   };
 
   const validateInputs = () => {
@@ -86,6 +107,13 @@ export default function SignInCard() {
     return isValid;
   };
 
+ 
+  
+
+  const handleTogglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
+
   return (
     <Card variant="outlined">
       <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
@@ -112,6 +140,7 @@ export default function SignInCard() {
             id="email"
             type="email"
             name="email"
+            defaultValue="user@demo.com"
             placeholder="your@email.com"
             autoComplete="email"
             autoFocus
@@ -139,7 +168,8 @@ export default function SignInCard() {
             helperText={passwordErrorMessage}
             name="password"
             placeholder="••••••"
-            type="password"
+            type={showPassword ? 'text' : 'password'} // Toggle between text and password
+            defaultValue="password"
             id="password"
             autoComplete="current-password"
             autoFocus
@@ -147,6 +177,18 @@ export default function SignInCard() {
             fullWidth
             variant="outlined"
             color={passwordError ? 'error' : 'primary'}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={handleTogglePasswordVisibility}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
         </FormControl>
         <FormControlLabel

@@ -28,7 +28,7 @@ const Header = ({ t }: HeaderProps) => {
   const toggleButton = () => {
     setVisibility(!visible);
   };
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
 
   const MenuItem = () => {
